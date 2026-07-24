@@ -1,5 +1,16 @@
 import { create } from 'zustand'
 
+export interface Track {
+  id: string
+  title: string
+  artist: string
+  bpm: number
+  duration: number
+  key: string
+  filePath: string
+  label: string
+}
+
 export interface DeckState {
   isPlaying: boolean
   filePath: string | null
@@ -26,6 +37,7 @@ interface DJStore {
   crossfader: number // -1.0 (Deck A only) to 1.0 (Deck B only)
   masterVolume: number
   limiterActive: boolean
+  libraryTracks: Track[]
   
   // Actions
   togglePlay: (deck: 'A' | 'B') => void
@@ -42,6 +54,11 @@ interface DJStore {
   setCrossfader: (value: number) => void
   setMasterVolume: (value: number) => void
   toggleLimiter: () => void
+
+  // Library actions
+  addLocalTracks: (tracks: Omit<Track, 'id'>[]) => void
+  removeTrack: (id: string) => void
+  clearLibrary: () => void
 }
 
 const initialDeckState = (title: string, artist: string, bpm: number): DeckState => ({
@@ -70,6 +87,7 @@ export const useDJStore = create<DJStore>((set) => ({
   crossfader: 0.0,
   masterVolume: 0.8,
   limiterActive: true,
+  libraryTracks: [], // Starts empty, local-only loading!
 
   togglePlay: (deck) =>
     set((state) => {
@@ -128,7 +146,7 @@ export const useDJStore = create<DJStore>((set) => ({
       return {
         [targetDeck]: {
           ...state[targetDeck],
-          currentTime: Math.min(Math.max(0, time), state[targetDeck].duration || 100),
+          currentTime: Math.min(Math.max(0, time), state[targetDeck].duration || 180),
         },
       }
     }),
@@ -182,4 +200,22 @@ export const useDJStore = create<DJStore>((set) => ({
   setCrossfader: (value) => set({ crossfader: value }),
   setMasterVolume: (value) => set({ masterVolume: value }),
   toggleLimiter: () => set((state) => ({ limiterActive: !state.limiterActive })),
+
+  addLocalTracks: (tracks) =>
+    set((state) => {
+      const newTracks = tracks.map((t, index) => ({
+        ...t,
+        id: `${Date.now()}-${index}-${Math.random().toString(36).substr(2, 9)}`,
+      }))
+      return {
+        libraryTracks: [...state.libraryTracks, ...newTracks],
+      }
+    }),
+
+  removeTrack: (id) =>
+    set((state) => ({
+      libraryTracks: state.libraryTracks.filter((t) => t.id !== id),
+    })),
+
+  clearLibrary: () => set({ libraryTracks: [] }),
 }))

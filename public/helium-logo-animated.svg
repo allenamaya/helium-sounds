@@ -1,0 +1,119 @@
+<svg width="120" height="120" viewBox="-60 -60 717 695" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* Main logo container float animation */
+      .logo-container {
+        transform-origin: 298.5px 287.5px;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Base flame properties with transform origin set to center of the shape */
+      .flame {
+        transform-origin: 298.5px 287.5px;
+      }
+
+      /* Concentric breathing animations with slightly offset timings for liquid/organic motion */
+      .flame-1 {
+        animation: breath-1 6s ease-in-out infinite;
+      }
+      .flame-2 {
+        animation: breath-2 5.5s ease-in-out infinite;
+      }
+      .flame-3 {
+        animation: breath-3 5.0s ease-in-out infinite;
+      }
+      .flame-4 {
+        animation: breath-4 4.5s ease-in-out infinite;
+      }
+
+      /* Float keyframes */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Concentric breathing keyframes */
+      @keyframes breath-1 {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.98) rotate(-0.5deg); }
+      }
+      @keyframes breath-2 {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.97) rotate(0.5deg); }
+      }
+      @keyframes breath-3 {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.95) rotate(-0.7deg); }
+      }
+      @keyframes breath-4 {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.93) rotate(0.6deg); }
+      }
+
+      /* SVG stroke draw-in animation for the letter H */
+      .h-path {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        animation: draw-in 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      .h-left {
+        animation-delay: 0.3s;
+      }
+      .h-right {
+        animation-delay: 0.5s;
+      }
+      .h-bar {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation-delay: 0.9s;
+      }
+
+      /* Letter H container vibration (subtle audio-wave hum) */
+      .letter-h {
+        transform-origin: 298.5px 287.5px;
+        animation: h-vibe 4s ease-in-out infinite;
+      }
+
+      @keyframes draw-in {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes h-vibe {
+        0%, 100% {
+          transform: scale(1) translate(0, 0);
+        }
+        25% {
+          transform: scale(1.008) translate(-0.5px, 0.5px);
+        }
+        50% {
+          transform: scale(0.995) translate(0.5px, -0.5px);
+        }
+        75% {
+          transform: scale(1.005) translate(-0.3px, -0.3px);
+        }
+      }
+    </style>
+  </defs>
+
+  <g class="logo-container">
+    <!-- Outer flame layers -->
+    <path class="flame flame-1" d="M597 255.331C597 431.879 463.357 575 298.5 575C133.643 575 0 431.879 0 255.331C0 78.7827 247.66 112.507 332.691 0C497.548 0 597 78.7827 597 255.331Z" fill="#FA5B05"/>
+    <path class="flame flame-2" d="M541.106 272.429C541.106 424.466 430.491 547.715 294.041 547.715C157.59 547.715 46.9756 424.466 46.9756 272.429C46.9756 120.393 251.961 149.435 322.34 52.5483C458.791 52.5483 541.106 120.393 541.106 272.429Z" fill="#E05205"/>
+    <path class="flame flame-3" d="M478.076 268.75C478.076 370.728 395.68 453.398 294.04 453.398C192.4 453.398 110.005 370.728 110.005 268.75C110.005 166.772 262.696 186.252 315.12 121.265C416.76 121.265 478.076 166.772 478.076 268.75Z" fill="#C04401"/>
+    <path class="flame flame-4" d="M442.993 286.599C442.993 362.72 378.168 424.429 298.202 424.429C218.237 424.429 153.412 362.72 153.412 286.599C153.412 210.477 273.542 225.018 314.787 176.509C394.753 176.509 442.993 210.477 442.993 286.599Z" fill="#8D3100"/>
+
+    <!-- Inside letter "H" -->
+    <g class="letter-h">
+      <path class="h-path h-left" d="M255 237L239 350" stroke="#E0E0E0" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="h-path h-right" d="M340 226L358 334.5" stroke="#E0E0E0" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="h-path h-bar" d="M284.5 288L278 299.5L331.5 288" stroke="#E0E0E0" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

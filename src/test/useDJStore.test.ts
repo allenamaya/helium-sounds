@@ -9,6 +9,7 @@ describe('DJ Zustand Store', () => {
     if (store.deckB.isPlaying) store.togglePlay('B')
     store.setCrossfader(0.0)
     store.setMasterVolume(0.8)
+    store.clearLibrary()
   })
 
   it('should initialize with correct default values', () => {
@@ -18,6 +19,7 @@ describe('DJ Zustand Store', () => {
     expect(state.crossfader).toBe(0.0)
     expect(state.masterVolume).toBe(0.8)
     expect(state.limiterActive).toBe(true)
+    expect(state.libraryTracks).toEqual([])
   })
 
   it('should toggle playback state for decks', () => {
@@ -50,4 +52,34 @@ describe('DJ Zustand Store', () => {
     useDJStore.getState().setCrossfader(-1.0)
     expect(useDJStore.getState().crossfader).toBe(-1.0)
   })
+
+  it('should support adding, removing, and clearing local tracks in the library', () => {
+    const store = useDJStore.getState()
+    expect(store.libraryTracks.length).toBe(0)
+
+    // Add track
+    store.addLocalTracks([
+      {
+        title: 'My Custom Song',
+        artist: 'Producer Bob',
+        bpm: 128,
+        duration: 200,
+        key: '4A',
+        filePath: '/some/local/path.mp3',
+        label: 'Local',
+      }
+    ])
+
+    let updatedState = useDJStore.getState()
+    expect(updatedState.libraryTracks.length).toBe(1)
+    expect(updatedState.libraryTracks[0].title).toBe('My Custom Song')
+
+    const trackId = updatedState.libraryTracks[0].id
+
+    // Remove track
+    store.removeTrack(trackId)
+    updatedState = useDJStore.getState()
+    expect(updatedState.libraryTracks.length).toBe(0)
+  })
 })
+
