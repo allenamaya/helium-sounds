@@ -1,4 +1,7 @@
-# Helium Sounds &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://helium-sounds.vercel.app" target="_blank"><img width="60" height="60" alt="HELIUM LOGO ANIMATED" src="./public/helium-logo-animated.svg" align="middle" /></a>
+# Helium Sounds &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://helium-sounds.vercel.app" target="_blank"><img width="60" height="60" alt="HELIUM LOGO ANIMATED" src="./public/helium-logo-animated.svg" align="middle" /></a>
+
+[![Fork](https://img.shields.io/badge/Fork-Repository-orange?style=flat-square&logo=github)](https://github.com/allenamaya/helium-sounds/fork) &nbsp; [![Clone](https://img.shields.io/badge/Clone-SSH-blue?style=flat-square&logo=git)](git@github.com:allenamaya/helium-sounds.git)
+
 
 Helium Sounds is an open-source desktop DJ workstation designed with the physical, tactile, minimalist, and playful design language of Teenage Engineering.
 
