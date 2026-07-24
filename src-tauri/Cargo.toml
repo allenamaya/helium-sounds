@@ -1,0 +1,28 @@
+[package]
+name = "helium-sounds"
+version = "0.1.0"
+description = "Helium Sounds - Teenage Engineering Inspired DJ Workstation"
+authors = ["Allen Amaya"]
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "helium_sounds_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[dependencies]
+tauri = { version = "2.1.1", features = [] }
+tauri-plugin-shell = "2.1.0"
+tauri-plugin-sql = { version = "2.1.0", features = ["sqlite"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+cpal = "0.15"
+symphonia = { version = "0.5", features = ["all"] }
+rubato = "0.15"
+rusqlite = { version = "0.31", features = ["bundled"] }
+once_cell = "1.19"
+log = "0.4"
+env_logger = "0.11"
+
+[build-dependencies]
+tauri-build = { version = "2.1.0", features = [] }

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --font-sans: "Geist", "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", Courier, monospace;
+
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-matte: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-tactile: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-tactile-dark: inset 0 1px 0px rgba(255, 255, 255, 0.15), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  --radius-te: 6px;
+  --radius-te-lg: 12px;
+  --radius-te-full: 9999px;
+}
+
+:root {
+  --bg-app: #F7F7F5;
+  --bg-surface: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --accent: #FFB800;
+  --accent-secondary: #62C4FF;
+  --success: #4CAF50;
+  --danger: #FF5252;
+  --shadow-ui: var(--shadow-tactile);
+  --border-te: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #0B0B0C;
+    --bg-surface: #18181B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --accent: #FFD54F;
+    --accent-secondary: #7DD3FC;
+    --success: #4CAF50;
+    --danger: #FF5252;
+    --shadow-ui: var(--shadow-tactile-dark);
+    --border-te: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Explicit theme toggling support */
+.dark {
+  --bg-app: #0B0B0C;
+  --bg-surface: #18181B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --accent: #FFD54F;
+  --accent-secondary: #7DD3FC;
+  --success: #4CAF50;
+  --danger: #FF5252;
+  --shadow-ui: var(--shadow-tactile-dark);
+  --border-te: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* Avoid desktop scrollbars, app should be fullscreen */
+  user-select: none;
+}
+
+/* Industrial Matte Surface Effect */
+.matte-surface {
+  background-color: var(--bg-surface);
+  border: var(--border-te);
+  box-shadow: var(--shadow-ui);
+  border-radius: var(--radius-te);
+}
+
+/* Teenage Engineering Style Tactile Dial Indicator */
+.dial-indicator {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background-color: var(--text-primary);
+  transform: translateX(-50%);
+}
+
+/* High-fidelity custom scrollbar matching Teenage Engineering hardware */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
