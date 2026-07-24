@@ -1,4 +1,4 @@
-# Helium Sounds &nbsp;&nbsp; <img width="120" height="120" alt="HELIUM LOGO ANIMATED" src="./public/helium-logo-animated.svg" align="middle" />
+# Helium Sounds &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://helium-sounds.vercel.app" target="_blank"><img width="60" height="60" alt="HELIUM LOGO ANIMATED" src="./public/helium-logo-animated.svg" align="middle" /></a>
 
 Helium Sounds is an open-source desktop DJ workstation designed with the physical, tactile, minimalist, and playful design language of Teenage Engineering.
 
