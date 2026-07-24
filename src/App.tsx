@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-
 import { Deck } from './components/Deck'
 import { Mixer } from './components/Mixer'
 import { Library } from './components/Library'
+import { LogoText } from './components/LogoText'
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  // Initialize dark mode based on system preferences
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+    return false
+  })
 
   // Sync theme with document class list
   useEffect(() => {
@@ -23,11 +29,12 @@ function App() {
       
       {/* Title / Header Bar */}
       <header className="flex justify-between items-center mb-6 w-full max-w-7xl mx-auto">
-        <div className="flex items-baseline gap-3">
-          <h1 className="text-xl font-sans font-black tracking-widest uppercase text-text-primary">
-            Helium Sounds
-          </h1>
-          <span className="text-[9px] font-mono font-bold tracking-widest text-text-secondary/60">
+        <div className="flex items-center gap-3">
+          {/* Emblem (Helium Logo) */}
+          <img src="/logo-emblem.svg" alt="Helium Emblem" className="w-8 h-8 object-contain" />
+          {/* Text Logo */}
+          <LogoText className="h-6 w-auto text-text-primary" />
+          <span className="text-[9px] font-mono font-bold tracking-widest text-text-secondary/60 ml-2">
             H.01 // TE EDITION
           </span>
         </div>

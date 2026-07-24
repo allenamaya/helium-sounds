@@ -37,21 +37,6 @@
   --border-te: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-app: #0B0B0C;
-    --bg-surface: #18181B;
-    --text-primary: #FFFFFF;
-    --text-secondary: #A1A1AA;
-    --accent: #FFD54F;
-    --accent-secondary: #7DD3FC;
-    --success: #4CAF50;
-    --danger: #FF5252;
-    --shadow-ui: var(--shadow-tactile-dark);
-    --border-te: 1px solid rgba(255, 255, 255, 0.08);
-  }
-}
-
 /* Explicit theme toggling support */
 .dark {
   --bg-app: #0B0B0C;
